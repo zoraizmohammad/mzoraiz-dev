@@ -12,36 +12,37 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Mohammad Zoraiz home">MZ<span>.</span></a>
       <nav aria-label="Primary navigation">
         <a class="nav-link active" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="resume.html">Résumé</a>
         <a class="nav-link" href="about.html">About</a>
+        <span class="nav-indicator" aria-hidden="true"></span>
       </nav>
       <div class="social-links" aria-label="Contact links">
-        <a href="mailto:mz248+web@duke.edu" aria-label="Email Mohammad">Email</a>
-        <a href="https://github.com/zoraizmohammad?tab=repositories" target="_blank" rel="noreferrer" aria-label="Mohammad's GitHub">GitHub</a>
+        <a class="email-link" href="mailto:mz248+web@duke.edu" aria-label="Email Mohammad"><img src="assets/email-logo.png" alt="Email" /></a>
+        <a class="github-link" href="https://github.com/zoraizmohammad?tab=repositories" target="_blank" rel="noreferrer" aria-label="Mohammad's GitHub"><img src="assets/github-logo.png" alt="GitHub" /></a>
         <a href="https://www.linkedin.com/in/mohammad-zoraiz/" target="_blank" rel="noreferrer" aria-label="Mohammad's LinkedIn">LinkedIn</a>
-        <a class="beli-link" href="https://beliapp.co/app/zoraizmohammad" target="_blank" rel="noreferrer" aria-label="Mohammad's Beli profile">Beli</a>
+        <a class="beli-link" href="https://beliapp.co/app/zoraizmohammad" target="_blank" rel="noreferrer" aria-label="Mohammad's Beli profile"><img src="assets/beli-logo.png" alt="Beli" /></a>
       </div>
     </header>
 
     <main>
       <section class="hero page-section">
         <div class="hero-copy">
-          <p class="eyebrow">Electrical & Computer Engineering · Duke University</p>
+          <p class="eyebrow">ECE, Physics, CS · Duke University</p>
           <h1>Building intelligent systems for the real world.</h1>
           <p class="lede">I’m Mohammad Zoraiz — an engineer and researcher working across agentic AI, machine learning, quantum computing, and embedded systems.</p>
           <div class="button-row">
-            <a class="button button-primary" href="projects.html">View projects <span>↓</span></a>
+            <a class="button button-primary" href="about.html">Read more <span>→</span></a>
             <a class="button button-quiet" href="mailto:mz248+web@duke.edu">Get in touch</a>
           </div>
         </div>
-        <aside class="hero-panel" aria-label="Mohammad Zoraiz monogram">
-          <div class="orb orb-one"></div><div class="orb orb-two"></div>
-          <p>MOHAMMAD<br />ZORAIZ</p>
-          <span>AI / ML · SYSTEMS</span>
+        <aside class="hero-panel photo-panel" aria-label="Portrait of Mohammad Zoraiz">
+          <img src="assets/mohammad-zoraiz-zion.png" alt="Mohammad Zoraiz outdoors in a canyon landscape" />
+          <div class="photo-caption">
+            <p>MOHAMMAD<br />ZORAIZ</p>
+          </div>
         </aside>
       </section>
 
@@ -52,12 +53,12 @@
           <p>Research-driven systems spanning precision medicine, developer tools, privacy, and quantum computing.</p>
         </div>
         <div class="project-grid">
-          <article class="project-card card-blue"><span class="card-index">01 / Jan 2026 — Current</span><h3>TargetONCO</h3><p>Agentic precision-oncology platform orchestrating radiology ML, spatial proteomics, and hybrid clinical retrieval for Bayesian cancer differential ranking.</p><div class="tags"><span>Python</span><span>FastAPI</span><span>React</span><span>LangGraph</span></div></article>
-          <article class="project-card card-coral"><span class="card-index">02 / Aug 2025 — Jan 2026</span><h3>Quantum Bayesian Learner</h3><p>Hybrid QML Bayesian learner with Kraus-channel evidence updates, masked-entangler VQC compression, and gate-complexity benchmarking.</p><div class="tags"><span>Qiskit</span><span>NumPy</span><span>SciPy</span><span>QML</span></div></article>
-          <article class="project-card card-gold"><span class="card-index">03 / Jun 2025 — Aug 2025</span><h3>CtrlSlash</h3><p>MCP-based documentation engine that auto-scrapes APIs and SDKs, powers semantic RAG search, and reduces AI IDE hallucinations.</p><div class="tags"><span>MCP</span><span>RAG</span><span>Puppeteer</span><span>Docker</span></div></article>
-          <article class="project-card card-lilac"><span class="card-index">04 / TreeHacks winner</span><h3>CipherShield</h3><p>Decentralized protected-data aggregation using split-key homomorphic encryption, Solidity smart contracts, and auditable privacy guarantees.</p><div class="tags"><span>OpenFHE</span><span>Solidity</span><span>C++</span></div></article>
-          <article class="project-card card-mint"><span class="card-index">05 / Sep 2024 — Jan 2025</span><h3>Gene Editing Classifier</h3><p>Python ML pipeline with EDA, feature selection, and PCA to distinguish edited and unedited gene-expression signatures from NIH and Duke data.</p><div class="tags"><span>PyTorch</span><span>Pandas</span><span>PCA</span><span>Genomics</span></div></article>
-          <article class="project-card card-slate"><span class="card-index">06 / IEEE-published</span><h3>SonicSync</h3><p>Submersible psychoacoustic testing wearable co-developed with Garmin engineers, combining mechanical design and FPGA signal processing.</p><div class="tags"><span>FPGA</span><span>MATLAB</span><span>AutoCAD</span></div></article>
+          <article class="project-card card-blue"><span class="card-index">01 / Precision Oncology</span><h3>TargetONCO</h3><p>Agentic precision-oncology platform orchestrating radiology ML, spatial proteomics, and hybrid clinical retrieval for Bayesian cancer differential ranking.</p><div class="tags"><span>Python</span><span>FastAPI</span><span>React</span><span>LangGraph</span></div></article>
+          <article class="project-card card-coral"><span class="card-index">02 / Quantum Systems</span><h3>Quantum Bayesian Learner</h3><p>Hybrid QML Bayesian learner with Kraus-channel evidence updates, masked-entangler VQC compression, and gate-complexity benchmarking.</p><div class="tags"><span>Qiskit</span><span>NumPy</span><span>SciPy</span><span>QML</span></div></article>
+          <article class="project-card card-gold"><span class="card-index">03 / AI IDE Context</span><h3>CtrlSlash</h3><p>MCP-based documentation engine that auto-scrapes APIs and SDKs, powers semantic RAG search, and reduces AI IDE hallucinations.</p><div class="tags"><span>MCP</span><span>RAG</span><span>Puppeteer</span><span>Docker</span></div></article>
+          <article class="project-card card-lilac"><span class="card-index">04 / Privacy Infrastructure</span><h3>CipherShield</h3><p>Decentralized protected-data aggregation using split-key homomorphic encryption, Solidity smart contracts, and auditable privacy guarantees.</p><div class="tags"><span>OpenFHE</span><span>Solidity</span><span>C++</span></div></article>
+          <article class="project-card card-mint"><span class="card-index">05 / Genomics ML</span><h3>Gene Editing Classifier</h3><p>Python ML pipeline with EDA, feature selection, and PCA to distinguish edited and unedited gene-expression signatures from NIH and Duke data.</p><div class="tags"><span>PyTorch</span><span>Pandas</span><span>PCA</span><span>Genomics</span></div></article>
+          <article class="project-card card-slate"><span class="card-index">06 / Human Sensing</span><h3>SonicSync</h3><p>Submersible psychoacoustic testing wearable co-developed with Garmin engineers, combining mechanical design and FPGA signal processing.</p><div class="tags"><span>FPGA</span><span>MATLAB</span><span>AutoCAD</span></div></article>
         </div>
       </section>
 
@@ -93,7 +94,7 @@
 
       <section class="contact-section" id="contact"><p class="eyebrow">Let’s build</p><h2>Have an idea worth discussing?</h2><a class="button button-primary" href="mailto:mohammad.zoraiz@duke.edu">mohammad.zoraiz@duke.edu <span>↗</span></a></section>
     </main>
-    <footer><span>© 2026 Mohammad Zoraiz</span><span>Built with intention in Cleveland & Durham.</span></footer>
+    <footer><span class="made-by"><span aria-hidden="true">&lt;/&gt;</span> with <span class="heart" aria-hidden="true">♥</span> by <span class="signature">Zoraiz</span></span><span>Built with intention in San Francisco, Durham, & Cleveland</span></footer>
     <script src="script.js"></script>
   </body>
 </html>

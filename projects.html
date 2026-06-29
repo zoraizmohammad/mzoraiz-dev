@@ -11,17 +11,18 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">MZ<span>.</span></a>
       <nav>
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link active" href="projects.html">Projects</a>
         <a class="nav-link" href="resume.html">Résumé</a>
         <a class="nav-link" href="about.html">About</a>
+        <span class="nav-indicator" aria-hidden="true"></span>
       </nav>
       <div class="social-links">
-        <a href="mailto:mohammad.zoraiz@duke.edu">Email</a>
-        <a href="https://github.com/zoraizmohammad">GitHub</a>
+        <a class="email-link" href="mailto:mohammad.zoraiz@duke.edu" aria-label="Email Mohammad"><img src="assets/email-logo.png" alt="Email" /></a>
+        <a class="github-link" href="https://github.com/zoraizmohammad" aria-label="Mohammad's GitHub"><img src="assets/github-logo.png" alt="GitHub" /></a>
         <a href="https://www.linkedin.com/in/mohammad-zoraiz/">LinkedIn</a>
+        <a class="beli-link" href="https://beliapp.co/app/zoraizmohammad" target="_blank" rel="noreferrer" aria-label="Mohammad's Beli profile"><img src="assets/beli-logo.png" alt="Beli" /></a>
       </div>
     </header>
 
@@ -33,45 +34,89 @@
           <p>Research-driven systems spanning precision medicine, developer tools, privacy, genomics, embedded systems, and quantum computing.</p>
         </div>
         <div class="project-grid">
-          <article id="targetonco" class="project-card card-blue">
-            <span class="card-index">01 / Jan 2026 — Current</span>
+          <a id="provenia-bio" class="project-card card-blue" href="https://github.com/zoraizmohammad/provenia-bio" target="_blank" rel="noreferrer">
+            <span class="card-index">01 / Biomedical AI</span>
+            <h3>Provenia Bio</h3>
+            <p>Proof- and provenance-carrying neuro-symbolic drug discovery system that promotes therapeutic hypotheses only when paired with machine-checkable proofs, W3C PROV traces, KernelGate validation, and calibrated uncertainty.</p>
+            <div class="tags"><span>Neuro-symbolic AI</span><span>Drug Discovery</span><span>PROV-O</span><span>FastAPI</span></div>
+          </a>
+          <a id="targetonco" class="project-card card-mint" href="https://github.com/zoraizmohammad/targetONCO" target="_blank" rel="noreferrer">
+            <span class="card-index">02 / Precision Oncology</span>
             <h3>TargetONCO</h3>
-            <p>Agentic precision-oncology platform orchestrating radiology ML, spatial proteomics, Dockerized tissue pipelines, and hybrid clinical retrieval for Bayesian cancer differential ranking.</p>
-            <div class="tags"><span>Python</span><span>FastAPI</span><span>React</span><span>LangGraph</span></div>
-          </article>
-          <article id="quantum-bayesian-learner" class="project-card card-coral">
-            <span class="card-index">02 / Aug 2025 — Jan 2026</span>
+            <p>Agentic precision-oncology platform turning radiology, spatial proteomics, vector search, and report generation into an end-to-end cancer analysis workflow for clinicians and researchers.</p>
+            <div class="tags"><span>Python</span><span>FastAPI</span><span>React</span><span>Elasticsearch</span></div>
+          </a>
+          <a id="quantum-bayesian-learner" class="project-card card-coral" href="https://github.com/zoraizmohammad/qb-learner-compression" target="_blank" rel="noreferrer">
+            <span class="card-index">03 / Quantum Systems</span>
             <h3>Quantum Bayesian Learner</h3>
-            <p>Hybrid QML Bayesian learner with Kraus-channel evidence updates, masked-entangler VQC compression, YAML sweeps, transpilation analysis, and gate-complexity benchmarking.</p>
-            <div class="tags"><span>Qiskit</span><span>NumPy</span><span>SciPy</span><span>QML</span></div>
-          </article>
+            <p>Hardware-aware quantum Bayesian learner with exact JAX statevector and density-matrix cores, FakeManila post-transpile gate cost, greedy circuit pruning, and learned-vs-random mask ablations.</p>
+            <div class="tags"><span>Qiskit</span><span>JAX</span><span>FakeManila</span><span>QML</span></div>
+          </a>
+          <a id="ombench" class="project-card card-slate" href="https://github.com/zoraizmohammad/ombench" target="_blank" rel="noreferrer">
+            <span class="card-index">04 / Agent Memory</span>
+            <h3>ombench</h3>
+            <p>Memory and backtesting platform for operational agents that captures work history, compiles durable knowledge, and measures whether memory improves replayed Slack, Calendar, Gmail, and Drive tasks.</p>
+            <div class="tags"><span>Python</span><span>Agents</span><span>Backtesting</span><span>Chroma</span></div>
+          </a>
+          <a id="qadam" class="project-card card-gold" href="https://github.com/zoraizmohammad/qadam" target="_blank" rel="noreferrer">
+            <span class="card-index">05 / Accessible Biotech</span>
+            <span class="special-tag">Founder · Non-profit</span>
+            <h3>Qadam</h3>
+            <p>Accessible biotech venture packing a prosthetics clinic into a portable case with reusable fitting tools, offline clinical workflows, open hardware, and low-cost mechanical limbs.</p>
+            <div class="tags"><span>Open Hardware</span><span>Prosthetics</span><span>Accessibility</span></div>
+          </a>
+          <a id="agentic-pollination-uav" class="project-card card-lilac" href="https://github.com/zoraizmohammad/agentic-pollination-uav" target="_blank" rel="noreferrer">
+            <span class="card-index">06 / Autonomous UAV</span>
+            <h3>Agentic Pollination UAV</h3>
+            <p>Full-stack autonomous pollinator drone simulation and computer-vision system with a Preact mission dashboard, FastAPI inference, LLM planning, RAG mission memory, and physical drone architecture.</p>
+            <div class="tags"><span>TypeScript</span><span>FastAPI</span><span>CV</span><span>UAV</span></div>
+          </a>
           <article id="ctrlslash" class="project-card card-gold">
-            <span class="card-index">03 / Jun 2025 — Aug 2025</span>
+            <span class="card-index">07 / AI IDE Context</span>
             <h3>CtrlSlash</h3>
-            <p>MCP-based documentation engine that auto-scrapes APIs and SDKs, powers semantic RAG search, and brings containerized AI dev environments into Cursor, Windsurf, and Kiro.</p>
+            <p>MCP-based documentation and context engine for AI IDEs that auto-scrapes APIs and SDKs, builds semantic retrieval, and reduces hallucinations in coding workflows.</p>
             <div class="tags"><span>MCP</span><span>RAG</span><span>Puppeteer</span><span>Docker</span></div>
           </article>
-          <article id="ciphershield" class="project-card card-lilac">
-            <span class="card-index">04 / TreeHacks winner</span>
+          <a id="ciphershield" class="project-card card-lilac" href="https://github.com/zoraizmohammad/cipher-shield" target="_blank" rel="noreferrer">
+            <span class="card-index">08 / Privacy Infrastructure</span>
             <h3>CipherShield</h3>
-            <p>Decentralized protected-data aggregation using split-key homomorphic encryption, C++ serialization, and Solidity smart contracts for auditable privacy guarantees.</p>
+            <p>Privacy-preserving aggregation system using split-key homomorphic encryption, C++ serialization, and Solidity smart contracts to make protected-data misuse mathematically impossible.</p>
             <div class="tags"><span>OpenFHE</span><span>Solidity</span><span>C++</span></div>
-          </article>
-          <article id="gene-editing-classifier" class="project-card card-mint">
-            <span class="card-index">05 / Sep 2024 — Jan 2025</span>
-            <h3>Gene Editing Classifier</h3>
-            <p>Python ML pipeline with EDA, feature selection, and PCA to distinguish edited and unedited gene-expression signatures using NIH and Duke data with Life Edit Therapeutics.</p>
-            <div class="tags"><span>PyTorch</span><span>Pandas</span><span>PCA</span><span>Genomics</span></div>
-          </article>
-          <article id="sonicsync" class="project-card card-slate">
-            <span class="card-index">06 / IEEE-published</span>
+          </a>
+          <a id="sonicsync" class="project-card card-slate" href="https://github.com/zoraizmohammad/SonicSync" target="_blank" rel="noreferrer">
+            <span class="card-index">09 / Human Sensing</span>
             <h3>SonicSync</h3>
-            <p>Submersible psychoacoustic testing wearable co-developed with Garmin engineers, combining AutoCAD mechanical design, MATLAB analysis, and FPGA signal processing.</p>
-            <div class="tags"><span>FPGA</span><span>MATLAB</span><span>AutoCAD</span></div>
-          </article>
+            <p>Submersible psychoacoustic feedback wearable built with Garmin engineers for diver communication, low-latency data transfer, and auditory testing across underwater depths.</p>
+            <div class="tags"><span>MATLAB</span><span>C++</span><span>Hardware</span><span>IEEE</span></div>
+          </a>
+          <a id="lifeedit-gene-classifier" class="project-card card-mint" href="https://github.com/zoraizmohammad/LifeEdit-geneclassifier" target="_blank" rel="noreferrer">
+            <span class="card-index">10 / Genomics ML</span>
+            <h3>LifeEdit Gene Classifier</h3>
+            <p>Machine-learning classifier for edited versus unedited cell and gene-expression signatures using single-cell data, feature engineering, and notebook-driven exploratory modeling.</p>
+            <div class="tags"><span>Python</span><span>Jupyter</span><span>Genomics</span><span>Classification</span></div>
+          </a>
+          <a id="revealgenomics" class="project-card card-coral" href="https://github.com/zoraizmohammad/RevealGenomics" target="_blank" rel="noreferrer">
+            <span class="card-index">11 / Cancer Detection</span>
+            <h3>RevealGenomics</h3>
+            <p>Breast-cancer gene detection modeling work using autoencoder methodology and notebook-based exploration for BRCA-gene classification research.</p>
+            <div class="tags"><span>Jupyter</span><span>VAE</span><span>Oncology</span></div>
+          </a>
+          <a id="fpga-hologram" class="project-card card-blue" href="https://github.com/zoraizmohammad/fpga-hologram" target="_blank" rel="noreferrer">
+            <span class="card-index">12 / Digital Systems</span>
+            <h3>FPGA Hologram</h3>
+            <p>Persistence-of-vision hologram display on a Nexys A7 FPGA with Verilog/VHDL LED timing, angle mapping, texture ROM animation, and a custom pipelined CPU for controls.</p>
+            <div class="tags"><span>Verilog</span><span>VHDL</span><span>FPGA</span><span>Assembly</span></div>
+          </a>
+          <a id="academicinsights" class="project-card card-slate" href="https://github.com/zoraizmohammad/academicInsights" target="_blank" rel="noreferrer">
+            <span class="card-index">13 / EdTech Research</span>
+            <h3>AcademicInsights</h3>
+            <p>Chrome extension and backend template for edtech researchers using web scraping, NLP, and behavioral signals to study learning styles and online academic behavior.</p>
+            <div class="tags"><span>Python</span><span>JavaScript</span><span>NLP</span><span>EdTech</span></div>
+          </a>
         </div>
       </section>
     </main>
-    <footer><span>© 2026 Mohammad Zoraiz</span><span>Built with intention in Cleveland & Durham.</span></footer>
+    <footer><span class="made-by"><span aria-hidden="true">&lt;/&gt;</span> with <span class="heart" aria-hidden="true">♥</span> by <span class="signature">Zoraiz</span></span><span>Built with intention in San Francisco, Durham, & Cleveland</span></footer>
+    <script src="script.js"></script>
   </body>
 </html>

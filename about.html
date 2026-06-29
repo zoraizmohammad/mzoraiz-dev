@@ -11,17 +11,18 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">MZ<span>.</span></a>
       <nav>
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="resume.html">Résumé</a>
         <a class="nav-link active" href="about.html">About</a>
+        <span class="nav-indicator" aria-hidden="true"></span>
       </nav>
       <div class="social-links">
-        <a href="mailto:mohammad.zoraiz@duke.edu">Email</a>
-        <a href="https://github.com/zoraizmohammad">GitHub</a>
+        <a class="email-link" href="mailto:mohammad.zoraiz@duke.edu" aria-label="Email Mohammad"><img src="assets/email-logo.png" alt="Email" /></a>
+        <a class="github-link" href="https://github.com/zoraizmohammad" aria-label="Mohammad's GitHub"><img src="assets/github-logo.png" alt="GitHub" /></a>
         <a href="https://www.linkedin.com/in/mohammad-zoraiz/">LinkedIn</a>
+        <a class="beli-link" href="https://beliapp.co/app/zoraizmohammad" target="_blank" rel="noreferrer" aria-label="Mohammad's Beli profile"><img src="assets/beli-logo.png" alt="Beli" /></a>
       </div>
     </header>
 
@@ -43,17 +44,17 @@
           <div class="about-copy">
             <p>I am an AI systems researcher and builder. I am interested in how intelligent systems can reason over messy, high-stakes information: scientific evidence, clinical data, software traces, physical sensors, and human context. My work follows three connected themes: 1. making AI systems more agentic and useful; 2. grounding predictions in evidence, provenance, and uncertainty; and 3. connecting computation to the physical and biomedical world.</p>
             <ul class="about-list">
-              <li><strong>Biomedical and Scientific AI:</strong> I build AI systems for precision medicine, drug discovery, and genomic analysis. My work includes <a class="project-pill pill-blue" href="projects.html">Provenia Bio</a>, a proof- and provenance-carrying neuro-symbolic drug discovery system designed to make therapeutic hypotheses auditable and machine-checkable; <a class="project-pill pill-mint" href="projects.html#targetonco">TargetONCO</a>, an agentic precision oncology platform combining radiology, spatial proteomics, clinical retrieval, and Bayesian differential ranking; and gene-expression classification work for edited versus unedited biological signatures. More broadly, I am interested in AI systems that can help scientists move from raw data to traceable, experimentally meaningful hypotheses.</li>
-              <li><strong>Agentic AI and Infrastructure:</strong> I build infrastructure for agents that code, reason, remember, and improve over time. At AWS and Kiro, I have worked on benchmarking and runtime systems for iterative LLM improvement and coding-agent execution. My independent work includes <a class="project-pill pill-gold" href="projects.html#ctrlslash">ctrlSlash</a>, an open-source documentation and context engine for AI IDEs, and <a class="project-pill pill-slate" href="projects.html">ombench</a>, a memory and backtesting framework for operational agents that evaluates whether compiled context actually improves performance on historical tasks. I care about agent systems that are not just impressive in demos, but measurable, reproducible, and dependable.</li>
+              <li><strong>Biomedical and Scientific AI:</strong> I build AI systems for precision medicine, drug discovery, and genomic analysis. My work includes <a class="project-pill pill-blue" href="projects.html#provenia-bio">Provenia Bio</a>, a proof- and provenance-carrying neuro-symbolic drug discovery system designed to make therapeutic hypotheses auditable and machine-checkable; <a class="project-pill pill-mint" href="projects.html#targetonco">TargetONCO</a>, an agentic precision oncology platform combining radiology, spatial proteomics, clinical retrieval, and Bayesian differential ranking; and gene-expression classification work for edited versus unedited biological signatures. More broadly, I am interested in AI systems that can help scientists move from raw data to traceable, experimentally meaningful hypotheses.</li>
+              <li><strong>Agentic AI and Infrastructure:</strong> I build infrastructure for agents that code, reason, remember, and improve over time. At AWS and Kiro, I have worked on benchmarking and runtime systems for iterative LLM improvement and coding-agent execution. My independent work includes <a class="project-pill pill-gold" href="projects.html#ctrlslash">ctrlSlash</a>, an open-source documentation and context engine for AI IDEs, and <a class="project-pill pill-slate" href="projects.html#ombench">ombench</a>, a memory and backtesting framework for operational agents that evaluates whether compiled context actually improves performance on historical tasks. I care about agent systems that are not just impressive in demos, but measurable, reproducible, and dependable.</li>
               <li><strong>Quantum, Trust, and Secure Computation:</strong> I work on computational systems where structure matters. My quantum work includes a <a class="project-pill pill-coral" href="projects.html#quantum-bayesian-learner">Quantum Bayesian Learner with Hardware-Aware Circuit Compression</a>, studying how quantum models trade off accuracy against realistic hardware cost. I also built <a class="project-pill pill-lilac" href="projects.html#ciphershield">CipherShield</a>, a privacy-preserving aggregation system using homomorphic encryption and blockchain verification, with the goal of making sensitive-data misuse mathematically impossible rather than merely policy-prohibited.</li>
-              <li><strong>Embodied and Human-Centered Hardware:</strong> I like building systems that touch the physical world. <a class="project-pill pill-slate" href="projects.html#sonicsync">SonicSync</a> is a submersible wearable apparatus developed with Garmin engineers for underwater psychoacoustic feedback and testing. <a class="project-pill pill-green" href="projects.html">Qadam</a> is an accessible biotech venture that imagines a portable prosthetics clinic in a case, combining open hardware, offline fitting workflows, and field-ready clinical tools. I have also built autonomous and agentic sensing systems, including pollination-drone simulation and computer-vision infrastructure.</li>
+              <li><strong>Embodied and Human-Centered Hardware:</strong> I like building systems that touch the physical world. <a class="project-pill pill-slate" href="projects.html#sonicsync">SonicSync</a> is a submersible wearable apparatus developed with Garmin engineers for underwater psychoacoustic feedback and testing. <a class="project-pill pill-green" href="projects.html#qadam">Qadam</a> is an accessible biotech venture that imagines a portable prosthetics clinic in a case, combining open hardware, offline fitting workflows, and field-ready clinical tools. I have also built autonomous and agentic sensing systems, including pollination-drone simulation and computer-vision infrastructure.</li>
             </ul>
           </div>
 
           <p class="about-label">03 / Products & Building</p>
           <div class="about-copy">
             <p>Apart from research, I build products and ventures around a simple principle: powerful systems should become more accessible, transparent, and useful.</p>
-            <p>Through <a class="project-pill pill-green" href="projects.html">Qadam Labs</a> and independent projects, I work on AI-native tools for developers, researchers, clinicians, and organizations. Some of these projects are infrastructure-heavy, such as agent benchmarking, documentation retrieval, vector search, and cloud-native ML pipelines. Others are more human-facing, such as education technology, accessible prosthetics, biomedical decision-support systems, and tools for communities that are often underserved by advanced technology.</p>
+            <p>Through <a class="project-pill pill-green" href="projects.html#qadam">Qadam Labs</a> and independent projects, I work on AI-native tools for developers, researchers, clinicians, and organizations. Some of these projects are infrastructure-heavy, such as agent benchmarking, documentation retrieval, vector search, and cloud-native ML pipelines. Others are more human-facing, such as education technology, accessible prosthetics, biomedical decision-support systems, and tools for communities that are often underserved by advanced technology.</p>
             <p>The common thread is that I like building full-stack systems end-to-end: from the model and algorithm, to the backend architecture, to the interface, to the deployment path, to the question of whether the system actually helps someone make a better decision.</p>
           </div>
 
@@ -66,6 +67,7 @@
         </div>
       </section>
     </main>
-    <footer><span>© 2026 Mohammad Zoraiz</span><span>Built with intention in Cleveland & Durham.</span></footer>
+    <footer><span class="made-by"><span aria-hidden="true">&lt;/&gt;</span> with <span class="heart" aria-hidden="true">♥</span> by <span class="signature">Zoraiz</span></span><span>Built with intention in San Francisco, Durham, & Cleveland</span></footer>
+    <script src="script.js"></script>
   </body>
 </html>

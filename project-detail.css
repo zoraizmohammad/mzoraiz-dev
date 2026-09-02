@@ -1,0 +1,47 @@
+.project-page { --project-accent:#dcefe5; }
+.project-page .site-header { border-bottom-color:var(--line); }
+.project-back { display:inline-flex; align-items:center; gap:9px; color:var(--muted); font-family:"DM Mono",monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+.project-back:hover { color:var(--accent); }
+.case-hero { width:min(1200px,calc(100% - 64px)); margin:0 auto; padding:80px 0 72px; }
+.case-kicker { display:flex; justify-content:space-between; gap:24px; margin-bottom:50px; }
+.case-number { font-family:"DM Mono",monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.case-title { max-width:1000px; font-size:clamp(64px,10vw,132px); line-height:.82; letter-spacing:-.075em; margin:0 0 42px; }
+.case-summary { max-width:900px; font-size:clamp(23px,3vw,38px); line-height:1.2; letter-spacing:-.035em; color:#3e454e; margin-bottom:44px; }
+.case-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.case-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:48px; }
+.case-tags span { padding:7px 10px; border-radius:5px; background:var(--project-accent); font-family:"DM Mono",monospace; font-size:11px; }
+.case-canvas { width:min(1340px,calc(100% - 64px)); min-height:440px; margin:0 auto 112px; padding:64px; background:var(--project-accent); display:grid; place-items:center; overflow:hidden; }
+.system-map { width:min(100%,1050px); display:grid; grid-template-columns:repeat(var(--steps,4),1fr); gap:34px; position:relative; }
+.system-map::before { content:""; position:absolute; left:7%; right:7%; top:50%; height:1px; background:rgba(32,37,44,.25); }
+.system-node { min-height:150px; padding:22px; background:rgba(255,255,255,.76); backdrop-filter:blur(6px); position:relative; z-index:1; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 12px 40px rgba(32,37,44,.06); }
+.system-node span { font-family:"DM Mono",monospace; font-size:10px; letter-spacing:.08em; color:var(--muted); }
+.system-node strong { font-size:18px; letter-spacing:-.025em; }
+.case-body { width:min(1200px,calc(100% - 64px)); margin:0 auto; }
+.case-row { display:grid; grid-template-columns:280px minmax(0,760px); justify-content:space-between; gap:70px; padding:86px 0; border-top:1px solid var(--line); }
+.case-row-label { font-family:"DM Mono",monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.case-copy h2 { font-size:clamp(35px,5vw,58px); margin-bottom:28px; }
+.case-copy p { font-size:19px; line-height:1.65; color:#444b54; }
+.case-copy p:last-child { margin-bottom:0; }
+.case-columns { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:32px; }
+.case-note { padding:25px; background:#f0f0ec; }
+.case-note span { display:block; margin-bottom:28px; font-family:"DM Mono",monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.case-note h3 { font-size:21px; letter-spacing:-.035em; margin-bottom:10px; }
+.case-note p { font-size:15px; line-height:1.5; margin:0; }
+.case-next { width:min(1200px,calc(100% - 64px)); margin:40px auto 112px; display:block; padding:44px; background:var(--project-accent); transition:transform .18s ease; }
+.case-next:hover { transform:translateY(-3px); }
+.case-next span { font-family:"DM Mono",monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
+.case-next strong { display:block; margin-top:36px; font-size:clamp(35px,5vw,58px); letter-spacing:-.055em; }
+@media (max-width:800px) {
+  .case-hero,.case-body,.case-next { width:calc(100% - 40px); }
+  .case-hero { padding:54px 0; }
+  .case-kicker { margin-bottom:36px; }
+  .case-title { font-size:clamp(52px,18vw,82px); }
+  .case-summary { font-size:23px; }
+  .case-canvas { width:calc(100% - 40px); min-height:auto; padding:24px; margin-bottom:72px; }
+  .system-map { grid-template-columns:1fr; gap:12px; }
+  .system-map::before { display:none; }
+  .system-node { min-height:115px; }
+  .case-row { grid-template-columns:1fr; gap:28px; padding:62px 0; }
+  .case-columns { grid-template-columns:1fr; }
+  .case-copy p { font-size:17px; }
+}

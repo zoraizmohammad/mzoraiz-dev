@@ -1,0 +1,3 @@
+[submodule "vendor/clarity-template"]
+	path = vendor/clarity-template
+	url = https://github.com/lorenmt/clarity-template.git

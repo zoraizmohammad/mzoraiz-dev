@@ -1,4 +1,5 @@
 const projects = {
+  "provenia-bio": {number:"01",category:"Biomedical AI",title:"Provenia Bio",accent:"#dbe8ed",summary:"A proof- and provenance-carrying neuro-symbolic drug-discovery system for auditable therapeutic hypothesis generation.",tags:["Neuro-symbolic AI","Drug Discovery","PROV-O","FastAPI"],repo:"https://github.com/zoraizmohammad/provenia-bio",problem:"Drug-discovery systems can produce plausible hypotheses without exposing the evidence, transformations, or uncertainty behind them.",approach:"Provenia pairs every promoted hypothesis with machine-checkable proofs, W3C PROV traces, validation gates, and calibrated uncertainty.",steps:["Ingest evidence","Compose hypothesis","Validate proof","Publish provenance"],principles:[["Evidence before confidence","Claims remain attached to their sources."],["Machine-checkable promotion","Validation gates decide what advances."],["Explicit uncertainty","Confidence is measured rather than implied."],["Auditable lineage","Every transformation remains traceable."]],status:"The page establishes the system contract and is ready for proof traces, model diagrams, and validation results.",next:"targetonco"},
   targetonco: {
     number:"02", category:"Precision Oncology", title:"TargetONCO", accent:"#dcefe5",
     summary:"An agentic precision-oncology platform turning radiology, spatial proteomics, vector search, and report generation into one traceable cancer-analysis workflow.",
@@ -29,6 +30,7 @@ const projects = {
     principles:[["Replay over anecdotes","Evaluate on repeatable historical scenarios rather than isolated demos."],["Memory is a hypothesis","Test whether each memory strategy helps instead of assuming more context is better."],["Operational realism","Model the cross-tool environment in which working agents actually operate."],["Inspectability","Make retrieved memories and their influence visible during analysis."]],
     status:"This layout is prepared for benchmark definitions, replay traces, memory examples, and comparison plots. The initial copy focuses on the core evaluation idea and avoids claiming results before they are documented.", next:"agentic-pollination-uav"
   },
+  qadam:{number:"05",category:"Accessible Biotech",title:"Qadam",accent:"#efdfb9",summary:"A portable, offline-first prosthetics clinic built around reusable fitting tools, open hardware, and affordable mechanical limbs.",tags:["Open Hardware","Prosthetics","Accessibility"],repo:"https://github.com/zoraizmohammad/qadam",problem:"Traditional prosthetics delivery depends on expensive equipment, specialist facilities, and supply chains that are unavailable in many communities.",approach:"Qadam packages fitting, fabrication guidance, records, and reusable clinical tools into a field-deployable system.",steps:["Assess patient","Capture fit","Configure limb","Deliver + follow up"],principles:[["Design for the field","Assume constrained power and connectivity."],["Keep tools reusable","Reduce recurring cost and waste."],["Open the hardware","Make local repair and adaptation possible."],["Center the patient","Fit and follow-up shape the workflow."]],status:"This foundation is ready for product renders, fitting protocols, bill-of-materials analysis, and partner validation.",next:"agentic-pollination-uav"},
   "agentic-pollination-uav": {
     number:"06", category:"Autonomous UAV", title:"Agentic Pollination UAV", accent:"#e4dff3",
     summary:"A full-stack autonomous pollinator-drone concept combining computer vision, mission planning, retrieval memory, simulation, and a physical UAV architecture.",
@@ -39,6 +41,7 @@ const projects = {
     principles:[["Simulate the whole loop","Test planning, perception, and interface behavior as one system."],["Operator visibility","Expose targets, decisions, and mission state through a live dashboard."],["Memory-aware planning","Use prior mission context to inform what the agent does next."],["Hardware path","Keep the software architecture grounded in eventual onboard constraints."]],
     status:"The starter case study is ready for dashboard screenshots, detection examples, mission timelines, and an annotated drone-system diagram.", next:"ciphershield"
   },
+  ctrlslash:{number:"07",category:"AI IDE Context",title:"CtrlSlash",accent:"#eadfbd",summary:"An MCP-based documentation and context engine that gives AI coding tools current, project-specific technical knowledge.",tags:["MCP","RAG","Puppeteer","Docker"],repo:"https://github.com/zoraizmohammad/ctrlslash",problem:"Coding agents often hallucinate when library documentation, repository conventions, and API behavior are absent or stale.",approach:"CtrlSlash collects documentation, indexes semantic context, and exposes retrieval through MCP at the point of implementation.",steps:["Collect sources","Normalize docs","Index context","Serve through MCP"],principles:[["Current sources","Refresh knowledge as dependencies evolve."],["Context on demand","Retrieve only what the task needs."],["Source visibility","Keep documentation links attached."],["IDE-native access","Deliver context inside the coding workflow."]],status:"The page is ready for ingestion traces, retrieval examples, and hallucination-reduction evaluation.",next:"ciphershield"},
   ciphershield: {
     number:"08", category:"Privacy Infrastructure", title:"CipherShield", accent:"#e4dff3",
     summary:"A privacy-preserving aggregation system that combines split-key homomorphic encryption with smart-contract verification for auditable protected-data computation.",
@@ -77,7 +80,10 @@ const projects = {
     approach:"The workflow moves from exploratory analysis through feature selection and lower-dimensional representations to supervised classification, keeping each transformation available for biological review.",
     steps:["Single-cell inputs","Quality control + EDA","Feature selection + PCA","Edited / unedited model"],
     principles:[["Data quality first","Inspect distributions and artifacts before optimizing a model."],["Reduce with purpose","Use feature selection and PCA to clarify signal and manage dimensionality."],["Compare representations","Evaluate how preprocessing choices change downstream separability."],["Keep biology visible","Pair predictive results with interpretable features and careful limitations."]],
-    status:"The page now provides a stable structure for the research story. Next additions can include cohort details, class balance, PCA views, evaluation metrics, and the most biologically informative features.", next:"targetonco"
+    status:"The page now provides a stable structure for the research story. Next additions can include cohort details, class balance, PCA views, evaluation metrics, and the most biologically informative features.", next:"fpga-hologram"
+  },
+  "fpga-hologram":{number:"12",category:"Digital Systems",title:"FPGA Hologram",accent:"#dbe8ed",summary:"A persistence-of-vision hologram display on a Nexys A7 FPGA with deterministic LED timing and a custom pipelined controller.",tags:["Verilog","VHDL","FPGA","Assembly"],repo:"https://github.com/zoraizmohammad/fpga-hologram",problem:"Stable volumetric imagery requires precise coordination between rotation, angular position, memory access, and LED updates.",approach:"A hardware pipeline maps angular position to texture ROM data while a custom controller handles timing and interaction.",steps:["Sense angle","Address texture","Pipeline pixels","Drive LEDs"],principles:[["Deterministic timing","Keep display updates cycle-accurate."],["Pipeline the path","Separate addressing, control, and output."],["Precompute assets","Use ROM layouts suited to hardware."],["Measure visually","Tune timing against perceived stability."]],status:"The page is ready for timing diagrams, RTL modules, hardware photography, and display captures.",next:"academicinsights"},
+  academicinsights:{number:"13",category:"EdTech Research",title:"AcademicInsights",accent:"#dce2e0",summary:"A browser-based research system for studying learning behavior through web activity, language signals, and interpretable behavioral features.",tags:["Python","JavaScript","NLP","EdTech"],repo:"https://github.com/zoraizmohammad/academicInsights",problem:"Online learning behavior is distributed across browsing patterns and text interactions that are difficult to study without invasive collection.",approach:"The system combines a research-oriented browser extension with a backend analysis template for consent-aware behavioral and NLP experiments.",steps:["Collect consented events","Extract features","Analyze behavior","Review findings"],principles:[["Research consent","Make collection explicit and bounded."],["Minimize data","Capture only signals required by the study."],["Interpretable features","Prefer measures researchers can inspect."],["Separate observation","Keep collection and analysis modular."]],status:"The page is ready for study protocols, privacy controls, feature definitions, and research outputs.",next:"provenia-bio"
   }
 };
 
@@ -92,20 +98,21 @@ const nodes = project.steps.map((step,index) => `<div class="system-node"><span>
 const notes = project.principles.map(([title,copy],index) => `<article class="case-note"><span>Principle 0${index + 1}</span><h3>${title}</h3><p>${copy}</p></article>`).join("");
 const tags = project.tags.map(tag => `<span>${tag}</span>`).join("");
 const next = projects[project.next];
+const systemVisual = slug === "agentic-pollination-uav" ? `<figure class="uav-system"><img src="../assets/projects/agentic-pollination-uav/figures/system-overview.svg" alt="UAV hardware, perception, decision, and pollination architecture"><figcaption>Sensor and camera inputs feed perception; bounded reasoning produces deterministic action commands.</figcaption></figure>` : `<div class="system-map" style="--steps:${project.steps.length}">${nodes}</div>`;
 
 document.querySelector("main").innerHTML = `
-  <section class="case-hero">
-    <div class="case-kicker"><a class="project-back" href="../projects.html">← All projects</a><span class="case-number">${project.number} / ${project.category}</span></div>
-    <h1 class="case-title">${project.title}</h1>
-    <p class="case-summary">${project.summary}</p>
-    <div class="case-actions"><a class="button button-primary" href="${project.repo}" target="_blank" rel="noreferrer">View repository <span>↗</span></a></div>
-    <div class="case-tags">${tags}</div>
-  </section>
-  <section class="case-canvas" aria-label="${project.title} system flow"><div class="system-map" style="--steps:${project.steps.length}">${nodes}</div></section>
+  <section class="project-cover" id="first-content"><div class="case-hero research-cover-grid">
+    <div class="blog-intro"><div class="case-kicker"><a class="project-back" href="../projects.html">← All projects</a><span class="case-number">${project.number} / ${project.category}</span></div>
+    <h1 class="case-title">${project.title}</h1><p class="case-summary">${project.summary}</p><p class="research-byline">Mohammad Zoraiz · Research &amp; Engineering</p>
+    <div class="case-actions"><a class="button button-primary" href="${project.repo}" target="_blank" rel="noreferrer">Code <span>↗</span></a><a class="button button-quiet" href="#overview">Overview <span>↓</span></a></div><div class="case-tags">${tags}</div></div>
+    <figure class="research-cover-media abstract-cover"><img src="../assets/projects/covers/${slug}.png" alt="Minimal geometric research poster for ${project.title}"><figcaption>${project.category}</figcaption></figure>
+  </div></section>
+  <nav class="research-toc" aria-label="On this page"><a href="#overview">Overview</a><a href="#system">System</a><a href="#principles">Principles</a><a href="#status">Status</a></nav>
+  <section class="case-canvas" id="system" aria-label="${project.title} system flow"><p class="section-index">System flow</p>${systemVisual}</section>
   <div class="case-body">
-    <section class="case-row"><p class="case-row-label">01 / The problem</p><div class="case-copy"><h2>Why this exists</h2><p>${project.problem}</p></div></section>
+    <section class="case-row" id="overview"><p class="case-row-label">01 / The problem</p><div class="case-copy"><h2>Why this exists</h2><p>${project.problem}</p></div></section>
     <section class="case-row"><p class="case-row-label">02 / The approach</p><div class="case-copy"><h2>One connected system</h2><p>${project.approach}</p></div></section>
-    <section class="case-row"><p class="case-row-label">03 / Design principles</p><div class="case-copy"><h2>How the work is shaped</h2><div class="case-columns">${notes}</div></div></section>
-    <section class="case-row"><p class="case-row-label">04 / Current state</p><div class="case-copy"><h2>A starting point</h2><p>${project.status}</p></div></section>
+    <section class="case-row" id="principles"><p class="case-row-label">03 / Design principles</p><div class="case-copy"><h2>How the work is shaped</h2><div class="case-columns">${notes}</div></div></section>
+    <section class="case-row" id="status"><p class="case-row-label">04 / Current state</p><div class="case-copy"><h2>A starting point</h2><p>${project.status}</p></div></section>
   </div>
   <a class="case-next" href="${project.next}.html"><span>Next project / ${next.number}</span><strong>${next.title} →</strong></a>`;

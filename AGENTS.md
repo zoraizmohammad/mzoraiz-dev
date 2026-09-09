@@ -29,6 +29,12 @@ This repository is Mohammad Zoraiz's research and engineering portfolio. Preserv
 - Hardware includes an F450 platform, Pixhawk 2.4.8, Raspberry Pi 4, Coral USB accelerator, camera, optical-flow sensor, GPS/compass, and servo pollen dispenser.
 - Technical assets live under `assets/projects/agentic-pollination-uav/`; `system-overview.svg` is the canonical architecture diagram.
 - Source evidence can be refreshed from `/Users/mzoraiz/code/agentic-pollination-uav` when available.
+- The browser system has replay and live paths. Replay uses 2,700 frames at 30 fps over 90 seconds; live mode couples `AutonomousNavigator`, WebSocket inference on port 8765, and the agent server on port 8766.
+- The agent may call route, battery-range, confidence-threshold, and scan-pattern tools for at most three rounds. Chroma retrieves the three most similar prior missions using local all-MiniLM-L6-v2 embeddings.
+- The confidence bandit uses contextual UCB1 over thresholds 0.40, 0.60, and 0.75. Optical-flow interpolation uses smoothstep easing and confidence is coupled to measured stability and strength.
+- The current checked-in benchmark run reports 59,571 simulated pipeline fps, 16.6 µs mean frame cost, 504,218 sensor lookups/s, 8.6 µs mean TSP cost at eight targets, and a 2.55 m lock altitude only at zero horizontal offset. These are development-machine timings, not Raspberry Pi measurements.
+- Physical evidence from the report: 9/10 camera-only detections, 4/4 detections with the camera mounted on the assembled drone, approximately 30 fps Raspberry Pi bench detection with stable servo operation, more than 1 g of flour substitute delivered, and stable manual flight within 5 feet of the ground.
+- LLM decision latency was skipped in the checked-in benchmark because `ANTHROPIC_API_KEY` was unavailable. Never imply it was measured.
 
 ## Validation workflow
 

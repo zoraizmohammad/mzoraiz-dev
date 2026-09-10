@@ -45,6 +45,25 @@ This repository is Mohammad Zoraiz's research and engineering portfolio. Preserv
 - Do not present differential values as calibrated clinical probabilities or infer sensitivity, specificity, patient benefit, regulatory status, or production readiness.
 - Preserve visible failure states. The selected trace records a report-generator configuration failure followed by classifier-based fallback evidence.
 
+## Quantum Bayesian Learner
+
+- Treat `/Users/mzoraiz/code/qb-learner-compression` as the source for the Quantum Bayesian Learner case study. Prefer `results_v2/`, `src/qcore.py`, `src/qdensity.py`, the paper, and the QCE26 poster over superseded legacy experiments.
+- The work is accepted to IEEE Quantum Week QCE26, Poster Track, EasyChair submission 1846.
+- Report primary simulation results as five-seed means and standard deviations. The hard-task 0.927 result at `N₂q=6` versus 0.873 at `N₂q=24` is not statistically significant at five seeds.
+- The strongest matched-budget result is 49 wins in 55 paired seed-budget comparisons, mean learned-mask advantage +0.083, one-sided Wilcoxon `p≈1.7×10⁻⁸`.
+- Physical `ibm_fez` results are single-seed: 16 stimuli at 2,048 shots for the frontier and 40 stimuli at 4,096 shots for endpoint confirmation. No explicit error mitigation was configured and hardware job IDs were not retained.
+- FakeManila defines the post-transpile two-qubit cost; `ibm_fez` is the physical deployment device. State this mismatch explicitly.
+- Never claim quantum advantage. Classical RBF-SVM and MLP baselines are competitive; the contribution is structured, hardware-aware capacity analysis.
+
+## Ombench
+
+- Treat `/Users/mzoraiz/code/ombench` as the implementation source. Use its committed PlantUML-derived SVGs directly rather than recreating them.
+- The checked-in deterministic benchmark contains 15 curated operational tasks. Mean outcome-grounded score changes from 0.3777 without memory to 1.0 with memory, a paired delta of +0.6223 with bootstrap 95% CI `[0.5334, 0.6667]`.
+- Success changes from 6.67% to 100%; 14 tasks improve, one is neutral, and none regress. The SciPy paired Wilcoxon result is `p=0.0001828`.
+- The headline outcome-grounded score uses task outcome and action validity. Never use the full four-axis total for the primary delta because retrieval and application are zero by construction without memory.
+- Describe the result as a deterministic, fixture-backed, keyless benchmark—not live production-agent evidence. The 407 tests and 91% coverage are repository-reported unless freshly reproduced.
+- Bitemporal state is defined by both `valid_at` and `ingested_at`; preserve this distinction when describing replay and leakage prevention.
+
 ## Validation workflow
 
 1. Check JavaScript syntax with `node --check project-detail.js`.

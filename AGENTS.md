@@ -64,6 +64,24 @@ This repository is Mohammad Zoraiz's research and engineering portfolio. Preserv
 - Describe the result as a deterministic, fixture-backed, keyless benchmark—not live production-agent evidence. The 407 tests and 91% coverage are repository-reported unless freshly reproduced.
 - Bitemporal state is defined by both `valid_at` and `ingested_at`; preserve this distinction when describing replay and leakage prevention.
 
+## CipherShield
+
+- Treat `/Users/mzoraiz/code/cipher-shield` as the implementation source. The project won Taisu Ventures' **NextGen Web3 Security Award** at TreeHacks 2025; link the award to Taisu Ventures' own winner announcement.
+- Credit Mohammad Zoraiz, Adel Müürsepp, Sonia Bendre, and Sunny Jayram. Do not assign individual roles beyond what the repository documents.
+- The shared OpenFHE context uses BFV-RNS, plaintext modulus 65,537, multiplicative depth 2, noise-flooding multiparty mode, and batch size 16. A separate monolithic prototype uses batch size 512; do not collapse these experimental variants into one measured configuration.
+- The implemented arithmetic is ciphertext addition through `EvalAdd`, followed by `MultipartyDecryptLead`, `MultipartyDecryptMain`, and `MultipartyDecryptFusion`. Do not claim formal security, audited cryptography, production readiness, or measured performance.
+- The Solidity contract enforces a declared and confirmed cohort floor of 10, but this is not differential privacy and does not prevent differencing attacks. Its validation and processing methods are publicly callable in the prototype.
+- One React survey explicitly simulates encryption. Never represent that screen as exercising the OpenFHE implementation.
+
+## SonicSync
+
+- Treat `/Users/mzoraiz/code/SonicSync` and its included IEEE paper as primary sources. The paper is “Psycho Acoustic Testing to Determine the Optimal Frequency for Audible Safety Alerts for Freediving,” published at IEEE SIEDS 2024, DOI `10.1109/SIEDS61124.2024.10534714`.
+- Credit Arnav Nanda, Mohammad Zoraiz, Dhruva Barua, and Raghad Mohamed. The repository states that the project was developed in collaboration with Garmin International Inc.; the paper itself credits Duke ECE and Duke Marine Lab research support.
+- The reported study contains six participants, five tones (50, 100, 150, 200, 250 Hz), and 30 ratings. Reported ANOVA: `F=8.4375`, `p≈0.000188`, `Fcrit=2.7587`; Tukey HSD separates every pair except 150 vs 200 Hz.
+- Preserve the group means exactly: 1.3333, 3.3333, 3.6667, 3.6667, and 4.6667. Treat the study as exploratory: bucket-and-earmuff simulation, six participants, and an ordinal scale do not establish an optimal safety frequency in open water.
+- The 98% feedback accuracy, 70 ± 3 dB output, 10-second transfer, and submersion values are design targets, not reported validation results. SonicSync is not certified safety equipment.
+- CtrlSlash is intentionally archived from the public gallery. Preserve its page and source for possible restoration, but do not re-add it to visible project navigation without instruction.
+
 ## Validation workflow
 
 1. Check JavaScript syntax with `node --check project-detail.js`.

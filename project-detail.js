@@ -21,11 +21,11 @@ const projects = {
     status:"The starter page frames the research question and evaluation loop. It is ready for equations, compression curves, circuit visualizations, and a concise results table when those artifacts are selected.", next:"ombench"
   },
   ombench: {
-    number:"04", category:"Agent Memory", title:"ombench", accent:"#dbe0e5",
+    number:"04", category:"Agent Memory", title:"Ombench", accent:"#dbe0e5",
     summary:"A memory and backtesting platform for operational agents, designed to measure whether accumulated context improves performance on work that already happened.",
     tags:["Python","Agents","Backtesting","Chroma"], repo:"https://github.com/zoraizmohammad/ombench",
     problem:"Agent memory is easy to demo and difficult to evaluate. More stored context does not necessarily produce better decisions, and live tasks rarely provide a stable baseline for measuring improvement.",
-    approach:"ombench captures task history, compiles durable memories, and replays historical work across communication and productivity tools. The same task can be evaluated with and without memory to make its contribution observable.",
+    approach:"Ombench captures task history, compiles durable memories, and replays historical work across communication and productivity tools. The same task can be evaluated with and without memory to make its contribution observable.",
     steps:["Capture work history","Compile durable memory","Replay past tasks","Compare agent outcomes"],
     principles:[["Replay over anecdotes","Evaluate on repeatable historical scenarios rather than isolated demos."],["Memory is a hypothesis","Test whether each memory strategy helps instead of assuming more context is better."],["Operational realism","Model the cross-tool environment in which working agents actually operate."],["Inspectability","Make retrieved memories and their influence visible during analysis."]],
     status:"This layout is prepared for benchmark definitions, replay traces, memory examples, and comparison plots. The initial copy focuses on the core evaluation idea and avoids claiming results before they are documented.", next:"agentic-pollination-uav"
@@ -100,6 +100,38 @@ const tags = project.tags.map(tag => `<span>${tag}</span>`).join("");
 const next = projects[project.next];
 const systemVisual = slug === "agentic-pollination-uav" ? `<figure class="uav-system"><img src="../assets/projects/agentic-pollination-uav/figures/system-overview.svg" alt="UAV hardware, perception, decision, and pollination architecture"><figcaption>Sensor and camera inputs feed perception; bounded reasoning produces deterministic action commands.</figcaption></figure>` : `<div class="system-map" style="--steps:${project.steps.length}">${nodes}</div>`;
 
+const targetOncoPage = `
+  <section class="project-cover targetonco-cover" id="first-content"><div class="case-hero research-cover-grid">
+    <div class="blog-intro"><div class="case-kicker"><a class="project-back" href="../projects.html">← All projects</a><span class="case-number">02 / Precision Oncology</span></div>
+    <h1 class="case-title">TargetONCO</h1><p class="case-summary">A traceable multimodal workspace for radiology reasoning, spatial-proteomics quantification, and phenotype-aware cohort retrieval.</p>
+    <p class="research-byline">Mohammad Zoraiz · YuCheng (Tom) Yuan · Sheldon Lewis · Suhas Kurapati</p>
+    <div class="case-actions"><a class="button button-primary" href="${project.repo}" target="_blank" rel="noreferrer">Code <span>↗</span></a><a class="button button-quiet" href="#architecture">Architecture <span>↓</span></a></div><div class="case-tags">${tags}</div></div>
+    <figure class="research-cover-media abstract-cover"><img src="../assets/projects/covers/targetonco.png" alt="Abstract geometric cellular atlas poster for TargetONCO"><figcaption>Radiology · spatial biology · retrieval</figcaption></figure>
+  </div></section>
+  <nav class="research-toc" aria-label="On this page"><a href="#overview">Overview</a><a href="#architecture">Architecture</a><a href="#radiology">OncoRAX</a><a href="#pathology">Spatial</a><a href="#results">Evidence</a><a href="#limitations">Limits</a></nav>
+  <section class="research-metrics" aria-label="System dimensions"><div><strong>3</strong><span>specialist analysis systems</span></div><div><strong>70D</strong><span>tissue phenotype vector</span></div><div><strong>10D</strong><span>single-cell marker vector</span></div><div><strong>7</strong><span>traceable report stages</span></div></section>
+
+  <article class="research-prose" id="overview"><p class="section-index">01 / Research premise</p><h2>Different evidence should remain different</h2><p>Precision-oncology workflows span images, cellular phenotypes, clinical context, and narrative interpretation. TargetONCO does not collapse those signals into one opaque prediction. It routes each modality through a specialist pipeline, preserves intermediate artifacts, and reunifies the outputs as evidence for human review.</p><div class="research-callout"><span>Evidence boundary</span><p>This is a research prototype and decision-support demonstration—not a clinically validated diagnostic device. Architectural dimensions and checked-in execution traces are reported separately from clinical performance.</p></div></article>
+
+  <figure class="research-figure target-reference-diagram" id="architecture"><img src="../assets/projects/targetonco/figures/system-simplified.png" alt="Original TargetONCO system diagram connecting the frontend to X-ray analysis, OncoRAX reporting, OME-TIFF pathology, cell annotation, and Elasticsearch retrieval"><figcaption><strong>Multimodal architecture.</strong> The original project diagram shows the two primary paths from the frontend: radiology through OncoRAX and spatial pathology through OncoPathology, cell annotation, quantification, and retrieval.</figcaption></figure>
+
+  <section class="research-wide research-section"><p class="section-index">02 / Computational contract</p><h2>Specialists first; synthesis second</h2><div class="research-comparison"><article><span>Radiology</span><h3>OncoRAX</h3><p>A staged inference, critique, analogous-case retrieval, revision, differential-ranking, and reporting loop retains a timestamped event trace.</p></article><article><span>Spatial pathology</span><h3>OncoPathology</h3><p>Probability maps, cell segmentation, and marker quantification convert multi-channel OME-TIFF imagery into analysis-ready single-cell tables.</p></article><article><span>Cohort intelligence</span><h3>Elasticsearch</h3><p>Normalized marker summaries become dense tissue and cell embeddings with attached morphology and clinical metadata.</p></article><article><span>Orchestration</span><h3>FastAPI + React</h3><p>A typed web interface coordinates long-running local, containerized, Modal, or HPC execution while preserving generated artifacts.</p></article></div></section>
+
+  <figure class="research-figure target-reference-diagram target-reference-diagram-complex" id="radiology"><img src="../assets/projects/targetonco/figures/system-complex.png" alt="Original detailed TargetONCO architecture diagram showing frontend, agent core, OncoRAX, OncoPathology, vector search, execution backends, and reporting outputs"><figcaption><strong>Complete implementation topology.</strong> The repository’s detailed reference diagram maps the frontend and agent core to OncoRAX, OncoPathology, vector search, execution backends, data stores, and research-report outputs.</figcaption></figure>
+
+  <article class="research-prose"><p class="section-index">03 / Probabilistic reasoning</p><h2>Ranking hypotheses without hiding uncertainty</h2><p>The radiology path represents candidate findings with confidence scores, retrieves analogous cases, and forms a normalized differential. Its Bayesian stage can be written as:</p><div class="equation-block">P(D<sub>i</sub> | F) = P(F | D<sub>i</sub>) P(D<sub>i</sub>) / Σ<sub>j</sub> P(F | D<sub>j</sub>) P(D<sub>j</sub>)</div><p>Here, <span class="inline-equation">F</span> denotes the observed finding set and <span class="inline-equation">Dᵢ</span> a candidate diagnosis. OncoRAX stores the inference, critique, retrieved cases, revision, differential, and report as separate timeline events so a reviewer can inspect where a conclusion changed.</p></article>
+
+  <section class="research-wide research-section" id="pathology"><p class="section-index">04 / Spatial proteomics</p><h2>From multiplex pixels to cellular phenotypes</h2><div class="oncology-flow"><article><span>01</span><h3>UnMicst</h3><p>Produces probability maps from raw multi-channel OME-TIFF tissue imagery.</p></article><article><span>02</span><h3>S3segmenter</h3><p>Resolves nuclei and cell boundaries into spatially indexed masks.</p></article><article><span>03</span><h3>mcquant</h3><p>Quantifies per-cell marker intensity and morphology into tabular output.</p></article></div><p class="research-lede">The execution layer detects Docker, Apptainer/Singularity, Modal, or local runtimes, making multi-gigabyte jobs portable across workstation and HPC environments.</p></section>
+
+  <article class="research-prose"><p class="section-index">05 / Phenotype retrieval</p><h2>A common vocabulary across cohorts</h2><p>Ten shared markers—CD31, CD45, CD4, FOXP3, CD8, CD163, E-cadherin, SMA, pan-cytokeratin, and CD3—align Orion-CRC and OncoPathology outputs. Intensities are transformed and standardized per marker:</p><div class="equation-block">z<sub>m,c</sub> = [asinh(x<sub>m,c</sub> / 5) − μ<sub>m</sub>] / σ<sub>m</sub></div><p>Each cell is represented by ten normalized marker values. A tissue vector concatenates seven distribution summaries—mean, standard deviation, and the 10th, 25th, 50th, 75th, and 90th percentiles—for every marker, yielding <span class="inline-equation">10 × 7 = 70</span> dimensions. Elasticsearch ranks cosine-nearest phenotypes:</p><div class="equation-block">sim(q, x) = (q · x) / (‖q‖₂ ‖x‖₂)</div></article>
+
+  <section class="research-wide research-section" id="results"><p class="section-index">06 / Checked-in evidence</p><h2>One trace, reported as one trace</h2><p class="research-lede">The repository includes functional tests across normal, pneumonia, and cancer examples. The measurements below come from the checked-in <code>cancer4</code> demonstration and characterize execution behavior—not diagnostic accuracy.</p><div class="result-table-wrap"><table class="result-table"><thead><tr><th>Observed artifact</th><th>Demo value</th><th>What it establishes</th></tr></thead><tbody><tr><td>Initialization → final report</td><td>17.6 s</td><td>A complete seven-stage trace was emitted.</td></tr><tr><td>Extracted findings</td><td>8 total · 5 unique</td><td>Findings and confidence metadata were serialized.</td></tr><tr><td>Analogous cases</td><td>5 retrieved</td><td>Retrieval context was attached before revision.</td></tr><tr><td>Differential hypotheses</td><td>8 ranked</td><td>Probabilities were normalized into a reviewable table.</td></tr><tr><td>Visual outputs</td><td>5 generated</td><td>Image annotation and summary plots were exported.</td></tr></tbody></table></div></section>
+  <div class="research-gallery oncology-gallery"><figure><img src="../assets/projects/targetonco/figures/annotated_xray_cancer4.png" alt="Annotated demonstration chest radiograph"><figcaption>Model findings overlaid on the demonstration radiograph.</figcaption></figure><figure><img src="../assets/projects/targetonco/figures/differential_chart_cancer4.png" alt="Ranked differential diagnosis chart"><figcaption>Normalized differential emitted by the example trace.</figcaption></figure><figure><img src="../assets/projects/targetonco/figures/regional_heatmap_cancer4.png" alt="Regional finding heatmap"><figcaption>Regional distribution of extracted findings.</figcaption></figure><figure><img src="../assets/projects/targetonco/figures/finding_stats_cancer4.png" alt="Finding confidence statistics"><figcaption>Finding frequency and confidence summary.</figcaption></figure></div>
+
+  <article class="research-prose" id="limitations"><p class="section-index">07 / Limitations</p><h2>Useful infrastructure; open clinical questions</h2><ul class="research-limitations"><li><strong>No clinical validation.</strong> The checked-in examples demonstrate software execution and report structure, not sensitivity, specificity, calibration, or patient benefit.</li><li><strong>Single-trace timing.</strong> The 17.6-second figure is derived from one serialized demo timeline and is not a controlled latency benchmark.</li><li><strong>Model failure is visible.</strong> In the selected trace, the dedicated report-generation tool fails on a missing configuration field; classifier output provides the fallback evidence.</li><li><strong>Retrieval configuration matters.</strong> Elasticsearch can fall back to fixtures, and cohort similarity is exploratory unless dataset provenance and outcome labels are validated.</li><li><strong>Human review is mandatory.</strong> Generated differentials and summaries must not be interpreted as medical advice or autonomous diagnosis.</li></ul></article>
+  <section class="research-wide research-section reproducibility-block"><p class="section-index">08 / Reproducibility</p><h2>Inspect the implementation and trace</h2><p class="research-lede">The repository contains the orchestration code, preprocessing equations, container recipes, test documentation, and serialized intermediate results used to construct this case study.</p><div class="case-actions"><a class="button button-primary" href="${project.repo}" target="_blank" rel="noreferrer">Open repository <span>↗</span></a><a class="button button-quiet" href="../assets/projects/targetonco/data/demo-trace.json">Demo trace <span>↓</span></a></div></section>
+  <a class="case-next" href="quantum-bayesian-learner.html"><span>Next project / 03</span><strong>Quantum Bayesian Learner →</strong></a>`;
+
 const uavPage = `
   <section class="project-cover pollinator-cover" id="first-content"><div class="case-hero research-cover-grid">
     <div class="blog-intro"><div class="case-kicker"><a class="project-back" href="../projects.html">← All projects</a><span class="case-number">06 / Autonomous UAV</span></div>
@@ -155,7 +187,7 @@ const uavPage = `
   <section class="research-wide research-section reproducibility-block" id="reproducibility"><p class="section-index">07 / Reproducibility</p><h2>Inspect the evidence</h2><p class="research-lede">The benchmark suite can be regenerated with <code>python benchmark_suite.py</code>. The portfolio checks in the exact plots and underlying JSON/CSV used on this page.</p><div class="case-actions"><a class="button button-primary" href="${project.repo}" target="_blank" rel="noreferrer">Open repository <span>↗</span></a><a class="button button-quiet" href="../assets/projects/agentic-pollination-uav/data/benchmark_results.json">Benchmark JSON <span>↓</span></a><a class="button button-quiet" href="../assets/projects/agentic-pollination-uav/data/raw_opticalflow_data.csv">Sensor CSV <span>↓</span></a></div></section>
   <a class="case-next" href="ctrlslash.html"><span>Next project / 07</span><strong>CtrlSlash →</strong></a>`;
 
-document.querySelector("main").innerHTML = slug === "agentic-pollination-uav" ? uavPage : `
+document.querySelector("main").innerHTML = slug === "targetonco" ? targetOncoPage : slug === "agentic-pollination-uav" ? uavPage : `
   <section class="project-cover" id="first-content"><div class="case-hero research-cover-grid">
     <div class="blog-intro"><div class="case-kicker"><a class="project-back" href="../projects.html">← All projects</a><span class="case-number">${project.number} / ${project.category}</span></div>
     <h1 class="case-title">${project.title}</h1><p class="case-summary">${project.summary}</p><p class="research-byline">Mohammad Zoraiz · Research &amp; Engineering</p>
@@ -171,3 +203,39 @@ document.querySelector("main").innerHTML = slug === "agentic-pollination-uav" ? 
     <section class="case-row" id="status"><p class="case-row-label">04 / Current state</p><div class="case-copy"><h2>A starting point</h2><p>${project.status}</p></div></section>
   </div>
   <a class="case-next" href="${project.next}.html"><span>Next project / ${next.number}</span><strong>${next.title} →</strong></a>`;
+
+if (slug === "targetonco") {
+  const lightbox = document.createElement("dialog");
+  lightbox.className = "diagram-lightbox";
+  lightbox.setAttribute("aria-label", "Expanded architecture diagram");
+  lightbox.innerHTML = `<button class="diagram-lightbox-close" type="button" aria-label="Close expanded diagram">Close <span>×</span></button><div class="diagram-lightbox-scroll"><img alt=""></div>`;
+  document.body.appendChild(lightbox);
+
+  const expandedImage = lightbox.querySelector("img");
+  const closeButton = lightbox.querySelector(".diagram-lightbox-close");
+  const closeLightbox = () => lightbox.close();
+
+  document.querySelectorAll(".target-reference-diagram img").forEach((image) => {
+    image.tabIndex = 0;
+    image.setAttribute("role", "button");
+    image.setAttribute("aria-label", `${image.alt}. Open enlarged view.`);
+    const openLightbox = () => {
+      expandedImage.src = image.src;
+      expandedImage.alt = image.alt;
+      lightbox.showModal();
+      closeButton.focus();
+    };
+    image.addEventListener("click", openLightbox);
+    image.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox();
+      }
+    });
+  });
+
+  closeButton.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+}

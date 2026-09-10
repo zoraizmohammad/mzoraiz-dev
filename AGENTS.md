@@ -36,6 +36,15 @@ This repository is Mohammad Zoraiz's research and engineering portfolio. Preserv
 - Physical evidence from the report: 9/10 camera-only detections, 4/4 detections with the camera mounted on the assembled drone, approximately 30 fps Raspberry Pi bench detection with stable servo operation, more than 1 g of flour substitute delivered, and stable manual flight within 5 feet of the ground.
 - LLM decision latency was skipped in the checked-in benchmark because `ANTHROPIC_API_KEY` was unavailable. Never imply it was measured.
 
+## TargetONCO
+
+- Treat `/Users/mzoraiz/code/targetONCO` as the implementation source for the case study.
+- Present three connected research pipelines: OncoRAX radiology reasoning, OncoPathology spatial-proteomics processing, and Elasticsearch phenotype retrieval.
+- Cell vectors contain ten shared markers. Tissue vectors concatenate seven statistics for each marker into 70 dimensions. Normalization is `asinh(x / 5)` followed by per-marker z-scoring.
+- The checked-in `cancer4_full_report.json` is one demonstration trace, not a clinical benchmark. It records seven stages, five retrieved cases, eight differential items, and approximately 17.6 seconds from initialization to report.
+- Do not present differential values as calibrated clinical probabilities or infer sensitivity, specificity, patient benefit, regulatory status, or production readiness.
+- Preserve visible failure states. The selected trace records a report-generator configuration failure followed by classifier-based fallback evidence.
+
 ## Validation workflow
 
 1. Check JavaScript syntax with `node --check project-detail.js`.

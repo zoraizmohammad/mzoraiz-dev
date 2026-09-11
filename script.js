@@ -1,6 +1,15 @@
 const links = [...document.querySelectorAll(".nav-link")];
 const navs = [...document.querySelectorAll("nav")];
 
+const headerSocials = document.querySelector(".site-header .social-links");
+const siteFooter = document.querySelector("footer");
+if (headerSocials && siteFooter && !siteFooter.querySelector(".footer-social-links")) {
+  const footerSocials = headerSocials.cloneNode(true);
+  footerSocials.classList.add("footer-social-links");
+  footerSocials.setAttribute("aria-label", "Social profiles");
+  siteFooter.appendChild(footerSocials);
+}
+
 function moveIndicator(nav, link) {
   const indicator = nav.querySelector(".nav-indicator");
   if (!indicator || !link) return;

@@ -32,3 +32,5 @@
 @media(max-width:620px){.projects-gallery-page .page-section{width:calc(100% - 36px);padding-top:58px}.projects-gallery-page .section-heading{margin-bottom:36px}.projects-gallery-page .project-grid{grid-template-columns:1fr;gap:38px}.projects-gallery-page .project-card h3{font-size:22px}.projects-gallery-page .project-card p{font-size:15px}.projects-gallery-page .project-poster{padding:8%}}
 @media(prefers-reduced-motion:reduce){.projects-gallery-page .project-card,.projects-gallery-page .project-poster,.coming-soon-overlay{transition:none}.coming-soon-overlay::before{animation:none!important}}
 .button>span{font-family:Arial,"Helvetica Neue",sans-serif;font-style:normal;font-variant-emoji:text}
+.footer-social-links{display:none}
+@media(max-width:800px){.site-header>.social-links{display:none}.footer-social-links{display:flex;order:3;width:100%;margin-top:8px;padding-top:22px;border-top:1px solid var(--line);gap:18px}.footer-social-links .email-link{display:none}.footer-social-links a{width:30px;height:30px}.footer-social-links img{width:23px;height:23px}.footer-social-links .beli-link img{width:32px;height:32px}}

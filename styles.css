@@ -31,3 +31,4 @@
 .projects-gallery-page .nonprofit-tag{border-color:#9b874f;background:#f5ecd2;color:#69591f}
 @media(max-width:620px){.projects-gallery-page .page-section{width:calc(100% - 36px);padding-top:58px}.projects-gallery-page .section-heading{margin-bottom:36px}.projects-gallery-page .project-grid{grid-template-columns:1fr;gap:38px}.projects-gallery-page .project-card h3{font-size:22px}.projects-gallery-page .project-card p{font-size:15px}.projects-gallery-page .project-poster{padding:8%}}
 @media(prefers-reduced-motion:reduce){.projects-gallery-page .project-card,.projects-gallery-page .project-poster,.coming-soon-overlay{transition:none}.coming-soon-overlay::before{animation:none!important}}
+.button>span{font-family:Arial,"Helvetica Neue",sans-serif;font-style:normal;font-variant-emoji:text}

@@ -1,4 +1,3 @@
-const sections = [...document.querySelectorAll("main section[id]")];
 const links = [...document.querySelectorAll(".nav-link")];
 const navs = [...document.querySelectorAll("nav")];
 
@@ -32,16 +31,20 @@ navs.forEach((nav) => {
   window.addEventListener("resize", () => moveIndicator(nav, activeLink()));
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    const visible = entries.find((entry) => entry.isIntersecting);
-    if (!visible) return;
-    links.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
-    });
-    navs.forEach((nav) => moveIndicator(nav, nav.querySelector(".nav-link.active")));
-  },
-  { rootMargin: "-35% 0px -55% 0px" },
-);
-
-sections.forEach((section) => observer.observe(section));
+const sectionLinks = links.filter((link) => link.getAttribute("href")?.startsWith("#"));
+if (sectionLinks.length) {
+  const sectionIds = new Set(sectionLinks.map((link) => link.getAttribute("href").slice(1)));
+  const sections = [...document.querySelectorAll("main section[id]")].filter((section) => sectionIds.has(section.id));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.find((entry) => entry.isIntersecting);
+      if (!visible) return;
+      sectionLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
+      });
+      navs.forEach((nav) => moveIndicator(nav, nav.querySelector(".nav-link.active")));
+    },
+    { rootMargin: "-35% 0px -55% 0px" },
+  );
+  sections.forEach((section) => observer.observe(section));
+}

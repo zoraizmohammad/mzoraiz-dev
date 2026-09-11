@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+<title id="title">FPGA hologram hardware architecture</title><desc id="desc">A breakbeam-synchronized real-time display plane and a programmable five-stage processor control plane converge on the LED pixel path.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#294744"/></marker><style>text{font-family:Arial,sans-serif;fill:#213b38}.label{font:600 14px monospace;letter-spacing:2px;fill:#66726f}.title{font-weight:700;font-size:25px}.copy{font-size:16px;fill:#5d6967}.box{fill:#fbfaf6;stroke:#98aaa5;stroke-width:2}.mint{fill:#dce9e4}.gold{fill:#f2e6c3}.coral{fill:#eddad3}.wire{fill:none;stroke:#294744;stroke-width:2.5;marker-end:url(#arrow)}</style></defs>
+<rect width="1400" height="820" fill="#f5f4ed"/><text x="58" y="58" class="label">ANGLE-SYNCHRONIZED PERSISTENCE OF VISION</text><text x="58" y="96" class="title">Hard real-time pixels. Reprogrammable control.</text>
+<text x="58" y="152" class="label">01 · DISPLAY PLANE / 100 MHZ RTL</text>
+<g><rect class="box" x="58" y="180" width="205" height="116"/><text class="title" x="82" y="224">Breakbeam</text><text class="copy" x="82" y="258">zero-angle pulse</text></g>
+<g><rect class="box mint" x="300" y="180" width="215" height="116"/><text class="title" x="324" y="224">Angle mapper</text><text class="copy" x="324" y="258">EMA α = 1/8 · θ₆</text></g>
+<g><rect class="box" x="552" y="180" width="205" height="116"/><text class="title" x="576" y="224">ROM address</text><text class="copy" x="576" y="258">frame,row,column</text></g>
+<g><rect class="box mint" x="794" y="180" width="205" height="116"/><text class="title" x="818" y="224">Texture ROM</text><text class="copy" x="818" y="258">99,840 × 24-bit</text></g>
+<g><rect class="box gold" x="1036" y="180" width="205" height="116"/><text class="title" x="1060" y="224">Pixel adjust</text><text class="copy" x="1060" y="258">shift + invert</text></g>
+<g><rect class="box coral" x="1178" y="360" width="164" height="116"/><text class="title" x="1202" y="404">WS2812B</text><text class="copy" x="1202" y="438">52 LEDs</text></g>
+<path class="wire" d="M263 238h37M515 238h37M757 238h37M999 238h37M1241 238h19v122"/>
+<text x="58" y="388" class="label">02 · CONTROL PLANE / CUSTOM 5-STAGE CPU</text>
+<g><rect class="box" x="58" y="418" width="190" height="116"/><text class="title" x="82" y="462">Buttons</text><text class="copy" x="82" y="496">brightness · invert</text></g>
+<g><rect class="box mint" x="285" y="418" width="215" height="116"/><text class="title" x="309" y="462">Pipeline CPU</text><text class="copy" x="309" y="496">18-instruction ISA</text></g>
+<g><rect class="box" x="537" y="418" width="205" height="116"/><text class="title" x="561" y="462">RAM + MMIO</text><text class="copy" x="561" y="496">addresses 1000–1004</text></g>
+<g><rect class="box gold" x="779" y="418" width="215" height="116"/><text class="title" x="803" y="462">Mode registers</text><text class="copy" x="803" y="496">2-bit + 1-bit</text></g>
+<path class="wire" d="M248 476h37M500 476h37M742 476h37M994 476h82v-150"/>
+<path class="wire" d="M1260 476v72H896v68"/>
+<g><rect class="box" x="684" y="616" width="424" height="126"/><text class="label" x="714" y="650">OPTICAL OUTPUT</text><text class="title" x="714" y="692">64 columns × 52 radial samples</text><text class="copy" x="714" y="722">30 frames · 15 FPS · 5.625° per column</text></g>
+<text class="copy" x="58" y="690">frame timer → address = frame · 3328 + row · 64 + θ</text><text class="copy" x="58" y="724">one strip refresh ≈ 1.66 ms · ≈600 updates/s</text>
+</svg>

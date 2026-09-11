@@ -99,6 +99,25 @@ This repository is Mohammad Zoraiz's research and engineering portfolio. Preserv
 
 ## Validation workflow
 
+## EVPI
+
+- EVPI is a coming-soon ICLR 2026 experiment scaffold for execution-grounded, cost-sensitive clarification in voice-driven coding agents.
+- Preserve its four-action policy vocabulary: `act`, `silent_repair`, `ask`, and `yield` / back-channel.
+- RepoCalib estimates cross-modal span uncertainty against execution-grounded edit failure rather than word-error rate. VOICE-EVPI values clarification using measured execution cost such as test blast radius, call-graph fan-out, and AST scope.
+- The learned components sit outside the frozen, confidence-free Nova Sonic API. Keep EVPI non-clickable with the shaded, shimmering “Coming soon” gallery treatment until instructed otherwise.
+
+## FPGA Hologram
+
+- Treat `/Users/mzoraiz/code/fpga-hologram` as the implementation source. Credit Mohammad Zoraiz and Rally Lin.
+- The display uses 52 WS2812B LEDs and 64 angular columns on a Nexys A7-100T at 100 MHz. The active texture has 30 frames at 15 FPS and 99,840 24-bit GRB words.
+- Angle period is filtered by an EMA at α=1/8. The custom five-stage CPU has an 18-instruction MIPS-style ISA, forwarding, stalls, radix-4 Booth multiplication, non-restoring division, and MMIO at addresses 1000–1004.
+- A full LED pass is approximately 1.66 ms, giving roughly 600 updates/s and a derived upper bound near 9.4 revolutions/s at one update per column. Present this as a design bound, not measured motor speed.
+- CI covers ALU, register file, multiply/divide, full-pipeline assembly, hazards, and MMIO. Icarus substitutes a Verilog stub for the VHDL LED driver.
+
+## Gallery naming and availability
+
+- The public name is **ProveniaBio** as one word. It remains visible with its subtitle and Startup tag, but is currently non-clickable and uses the same “Coming soon” treatment as EVPI.
+
 1. Check JavaScript syntax with `node --check project-detail.js`.
 2. Check SVGs with `xmllint --noout`.
 3. Start a local server from the repository root.

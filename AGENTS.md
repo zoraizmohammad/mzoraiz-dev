@@ -82,6 +82,21 @@ This repository is Mohammad Zoraiz's research and engineering portfolio. Preserv
 - The 98% feedback accuracy, 70 ± 3 dB output, 10-second transfer, and submersion values are design targets, not reported validation results. SonicSync is not certified safety equipment.
 - CtrlSlash is intentionally archived from the public gallery. Preserve its page and source for possible restoration, but do not re-add it to visible project navigation without instruction.
 
+## CRISPR Signal Engine
+
+- Treat `/Users/mzoraiz/code/LifeEdit-geneclassifier` as the source. The public project name is **CRISPR Signal Engine**; the stable route and asset slug remain `lifeedit-gene-classifier`.
+- Credit Mohammad Zoraiz, Islam M. Tayeb, Amy Liu, Soham Jinsi, and DIIG Data. Present Life Edit Therapeutics and Novo Nordisk as collaborators using the supplied joint brand lockup.
+- The source starts with 39,376 genes across 38 samples from GSE218462 and GSE218463. It applies `log2(x + 1)`, gene-wise standardization, a median/dispersion relevance filter, PCA, k-means, NCBI-description annotation, and random-forest classification.
+- The selected 1.6 / 250 filter retains 4,188 genes and feeds nine clusters. Nearby committed feature sets retain 4,122 genes at 1.2 / 275 and 4,050 at 3.0 / 250.
+- The tuned forest notebook reports best five-fold macro-F1 0.8909 and 0.88 accuracy on an eight-sample holdout. State that the single untreated holdout sample was missed (`F1=0`), while seven edited samples yielded `P=0.88`, `R=1.0`, and `F1=0.93`.
+- Never call the clusters biomarkers or imply clinical validation. The cohort is small and imbalanced, and preprocessing leakage, donor effects, batch effects, and external generalization require further study.
+
+## TumorVector
+
+- The public name for the former RevealGenomics portfolio entry is **TumorVector**; preserve `revealgenomics` as its route, asset slug, repository identity, and sponsor name.
+- Use the supplied Reveal Genomics logo and describe the work as sponsored research with Reveal Genomics. Do not imply that Reveal Genomics itself was renamed.
+- TumorVector and AcademicInsights are intentionally archived from the public Projects gallery. Preserve both pages, routes, data entries, source links, posters, and assets for later restoration.
+
 ## Validation workflow
 
 1. Check JavaScript syntax with `node --check project-detail.js`.

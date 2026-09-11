@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 660" role="img" aria-labelledby="title desc">
+  <title id="title">CRISPR Signal Engine transcriptomic classification pipeline</title>
+  <desc id="desc">Raw gene counts are normalized, filtered, projected, clustered into nine functional groups, and classified by a random forest.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#294641"/>
+    </marker>
+  </defs>
+  <style>text{font-family:'DM Sans',sans-serif;fill:#203631}.mono{font-family:'DM Mono',monospace;letter-spacing:2px;fill:#687773}.head{font-size:27px;font-weight:700}.stage .head{font-size:24px}.sub{font-size:16px;fill:#596763}.card{fill:#f8f8f4;stroke:#91a49f;stroke-width:1.6}.mint{fill:#dcefe5}.rose{fill:#f2dfdc}.gold{fill:#f2e7c8}.line{fill:none;stroke:#294641;stroke-width:2;marker-end:url(#arrow)}.flow{stroke-dasharray:7 8;animation:flow 8s linear infinite}.stage{transition:transform .22s ease;transform-box:fill-box;transform-origin:center}.stage:hover{transform:translateY(-7px)}.evidence{fill:#fbfbf8;stroke:#b5c0bd}.evidence-label{font-size:13px;font-weight:700}@keyframes flow{to{stroke-dashoffset:-150}}@media(prefers-reduced-motion:reduce){.flow{animation:none}.stage{transition:none}}</style>
+  <rect width="1400" height="660" fill="#f3f2ec"/>
+  <text class="mono" x="50" y="52" font-size="13">CRISPR SIGNAL ENGINE &#xB7; EXPRESSION-TO-DECISION TRACE</text>
+  <text class="head" x="50" y="94" font-size="34">From 39,376 genes to an inspectable edited-cell hypothesis</text>
+  <g class="stage">
+    <rect class="card" x="50" y="155" width="200" height="220"/>
+    <text class="mono" x="75" y="190" font-size="11">01 &#xB7; INGEST</text>
+    <text class="head" x="75" y="238">Raw counts</text>
+    <text class="sub" x="75" y="282">39,376 genes</text>
+    <text class="sub" x="75" y="316">38 samples</text>
+    <text class="sub" x="75" y="345" font-size="14">GSE218462</text>
+    <text class="sub" x="75" y="367" font-size="14">+ GSE218463</text>
+  </g>
+  <g class="stage">
+    <rect class="card mint" x="325" y="155" width="210" height="220"/>
+    <text class="mono" x="350" y="190" font-size="11">02 &#xB7; NORMALIZE</text>
+    <text class="head" x="350" y="238">Transform</text>
+    <text class="sub" x="350" y="282">log&#x2082;(x + 1)</text>
+    <text class="sub" x="350" y="316">gene-wise z-score</text>
+    <text class="sub" x="350" y="350">comparable scale</text>
+  </g>
+  <g class="stage">
+    <rect class="card gold" x="605" y="155" width="210" height="220"/>
+    <text class="mono" x="630" y="190" font-size="11">03 &#xB7; SELECT</text>
+    <text class="head" x="630" y="238">Filter signal</text>
+    <text class="sub" x="630" y="282">median shift OR</text>
+    <text class="sub" x="630" y="316">dispersion shift</text>
+    <text class="sub" x="630" y="350">4,188 retained</text>
+  </g>
+  <g class="stage">
+    <rect class="card mint" x="885" y="155" width="220" height="220"/>
+    <text class="mono" x="910" y="190" font-size="11">04 &#xB7; STRUCTURE</text>
+    <text class="head" x="910" y="238">PCA + k-means</text>
+    <text class="sub" x="910" y="282">variance projection</text>
+    <text class="sub" x="910" y="316">elbow selection</text>
+    <text class="sub" x="910" y="350">9 functional groups</text>
+  </g>
+  <g class="stage">
+    <rect class="card rose" x="1170" y="155" width="180" height="220"/>
+    <text class="mono" x="1195" y="190" font-size="11">05 &#xB7; INFER</text>
+    <text class="head" x="1195" y="238">Random forest</text>
+    <text class="sub" x="1195" y="282">edited / untreated</text>
+    <text class="sub" x="1195" y="316">balanced weights</text>
+    <text class="sub" x="1195" y="350">50 trees</text>
+  </g>
+  <path class="line flow" d="M258 265H317"/>
+  <path class="line flow" d="M543 265H597"/>
+  <path class="line flow" d="M823 265H877"/>
+  <path class="line flow" d="M1113 265H1162"/>
+  <text class="mono" x="50" y="448" font-size="12">INTERPRETABILITY CONTRACT &#xB7; OUTPUT THE EVIDENCE, NOT ONLY THE LABEL</text>
+  <rect class="evidence" x="50" y="477" width="280" height="100"/>
+  <text class="mono" x="72" y="508" font-size="10">01</text>
+  <text class="evidence-label" x="72" y="543">Prediction + confidence</text>
+  <rect class="evidence" x="345" y="477" width="280" height="100"/>
+  <text class="mono" x="367" y="508" font-size="10">02</text>
+  <text class="evidence-label" x="367" y="543">Retained-gene set</text>
+  <rect class="evidence" x="640" y="477" width="280" height="100"/>
+  <text class="mono" x="662" y="508" font-size="10">03</text>
+  <text class="evidence-label" x="662" y="543">Cluster semantics</text>
+  <rect class="evidence" x="935" y="477" width="415" height="100"/>
+  <text class="mono" x="957" y="508" font-size="10">04 &#xB7; RESEARCH BOUNDARY</text>
+  <text class="evidence-label" x="957" y="543">Exploratory&#x2014;not a diagnostic endpoint</text>
+</svg>

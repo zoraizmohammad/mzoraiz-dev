@@ -99,6 +99,9 @@ This repository is Mohammad Zoraiz's research and engineering portfolio. Preserv
 
 ## Validation workflow
 
+- Project-page imagery uses the shared lightbox in `project-detail.js`. Preserve keyboard activation, plus/minus/reset controls, the visible zoom percentage, Ctrl/Cmd-wheel scaling, and two-axis scrolling at enlarged scales.
+- On mobile, embedded SVG objects must scale to their container instead of imposing a desktop minimum width. Expanded inspection belongs in the lightbox rather than in the document layout.
+
 ## EVPI
 
 - EVPI is a coming-soon ICLR 2026 experiment scaffold for execution-grounded, cost-sensitive clarification in voice-driven coding agents.

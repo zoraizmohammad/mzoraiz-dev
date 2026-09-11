@@ -104,9 +104,10 @@ const systemVisual = slug === "agentic-pollination-uav" ? `<figure class="uav-sy
 const fpgaPage = `
   <section class="project-cover fpga-cover" id="first-content"><div class="case-hero research-cover-grid">
     <div class="blog-intro"><div class="case-kicker"><a class="project-back" href="../projects.html">← All projects</a><span class="case-number">12 / Digital Systems</span></div><h1 class="case-title">FPGA Hologram</h1><p class="case-summary">An angle-synchronized persistence-of-vision globe driven by deterministic RTL and a custom five-stage pipelined processor.</p><p class="research-byline">Mohammad Zoraiz · Rally Lin</p><div class="case-actions"><a class="button button-primary" href="${project.repo}" target="_blank" rel="noreferrer">Code <span>↗</span></a><a class="button button-quiet" href="#architecture">Architecture <span>↓</span></a></div><div class="case-tags">${tags}</div></div>
-    <figure class="research-cover-media fpga-hardware-cover"><img src="../assets/projects/fpga-hologram/figures/hardware.jpg" alt="Curved LED strip persistence-of-vision globe operating on the hardware bench"><figcaption>Nexys A7 · Artix-7 · 52 WS2812B LEDs</figcaption></figure></div></section>
+    <figure class="research-cover-media abstract-cover"><img src="../assets/projects/covers/fpga-hologram.png" alt="Abstract geometric poster for the FPGA Hologram project"><figcaption>Sense · index · illuminate</figcaption></figure></div></section>
   <nav class="research-toc" aria-label="On this page"><a href="#overview">Overview</a><a href="#architecture">Architecture</a><a href="#timing">Timing</a><a href="#processor">Processor</a><a href="#media">Textures</a><a href="#verification">Verification</a></nav>
   <section class="research-metrics" aria-label="FPGA hologram design parameters"><div><strong>64 × 52</strong><span>angular columns × radial LEDs</span></div><div><strong>100 MHz</strong><span>Artix-7 system clock</span></div><div><strong>30 @ 15</strong><span>animation frames @ FPS</span></div><div><strong>18</strong><span>custom ISA instructions</span></div></section>
+  <figure class="research-figure fpga-bench-figure"><img src="../assets/projects/fpga-hologram/figures/hardware.jpg" alt="Curved LED strip persistence-of-vision globe operating on the hardware bench"><figcaption><strong>Physical prototype.</strong> A curved 52-pixel strip sweeps an angle-indexed texture into a luminous sphere inside the aluminum-extrusion test frame.</figcaption></figure>
   <article class="research-prose" id="overview"><p class="section-index">01 / Persistence of vision</p><h2>A sphere reconstructed one light column at a time</h2><p>A curved strip of 52 LEDs rotates about a vertical shaft. Each LED traces a ring; together, the rings sweep a spherical surface. A breakbeam pulse identifies angle zero once per revolution, while hardware interpolates 64 angular columns between pulses. The eye integrates those precisely timed samples into a floating, animated globe.</p><div class="equation-block">A(f,r,θ) = f · 3328 + r · 64 + θ</div><p>The address maps animation frame <em>f</em>, radial LED <em>r</em>, and six-bit angle <em>θ</em> into a 99,840-word texture ROM. Thirty 24-bit GRB frames occupy approximately 2.4 Mbit and form a two-second loop at 15 FPS.</p></article>
   <figure class="research-figure technical-diagram" id="architecture"><div class="diagram-viewport"><object data="../assets/projects/fpga-hologram/figures/architecture.svg" type="image/svg+xml" aria-label="FPGA hologram hardware and software architecture"></object></div><figcaption><strong>Two-plane architecture.</strong> Microsecond-sensitive sensing, addressing, and LED serialization remain in RTL; mode logic remains reprogrammable in assembly.</figcaption></figure>
   <section class="research-wide research-section" id="timing"><p class="section-index">02 / Closed-loop timing</p><h2>Rotation drift is measured, filtered, and absorbed</h2><p class="research-lede">The angle mapper captures the 100 MHz cycles between breakbeam edges and filters the period with a shift-only exponential moving average. Dividing that estimate by 64 produces the dwell interval for each angular column.</p><div class="equation-block">T̄ₖ = ⅞T̄ₖ₋₁ + ⅛Tₖ &nbsp;·&nbsp; Δt<sub>column</sub> = T̄ₖ / 64</div><div class="research-callout"><span>Timing envelope</span><p>A 28-bit counter measures revolutions up to approximately 2.68 s. A two-flip-flop synchronizer and 12-bit stability filter reject asynchronous transitions and roughly 41 μs of chatter.</p></div></section>
@@ -114,7 +115,7 @@ const fpgaPage = `
   <section class="research-wide research-section"><p class="section-index">04 / Pixel protocol</p><h2>Every bit has a microsecond deadline</h2><p class="research-lede">The VHDL NeoPixel controller emits each WS2812B bit in 1.25 μs: 800 ns high for one, 400 ns high for zero, followed by a 100 μs latch.</p><div class="equation-block">T<sub>strip</sub> = 52 · 24 · 1.25 μs + 100 μs ≈ 1.66 ms</div></section>
   <section class="research-wide research-section" id="media"><p class="section-index">05 / Texture compiler</p><h2>Media becomes synthesis-ready memory</h2><p class="research-lede">Python tooling resamples images and GIFs to the physical 64 × 52 topology, applies optical flips, serializes native GRB pixels, and decodes memory files into contact sheets for pre-synthesis inspection.</p></section>
   <div class="research-gallery fpga-gallery"><figure><img src="../assets/projects/fpga-hologram/figures/texture-fire.png" alt="Contact sheet of the thirty-frame fire texture ROM"><figcaption>Thirty-frame fire ROM decoded from hardware words.</figcaption></figure><figure><img src="../assets/projects/fpga-hologram/figures/texture-windmill.png" alt="Contact sheet of the thirty-frame windmill texture ROM"><figcaption>Windmill animation transformed to the 64 × 52 topology.</figcaption></figure><figure><img src="../assets/projects/fpga-hologram/figures/world-map.png" alt="World map source texture"><figcaption>Flat world-map source before spherical angular sampling.</figcaption></figure><figure><img src="../assets/projects/fpga-hologram/figures/fire.gif" alt="Source fire animation"><figcaption>Source animation before ROM compilation.</figcaption></figure></div>
-  <section class="research-wide research-section" id="verification"><p class="section-index">06 / Verification</p><h2>Unit tests meet full-pipeline programs</h2><p class="research-lede">Icarus Verilog CI exercises ALU operations, register storage, Booth multiplication, and non-restoring division. Assembly simulations verify execution, memory hazards, bypass paths, and end-to-end MMIO.</p><div class="research-callout"><span>Measured design bound</span><p>At one update per angular column, the approximately 600 Hz strip ceiling supports at most 9.4 revolutions per second—a direct link between protocol timing and mechanical speed.</p></div><div class="case-actions"><a class="button button-primary" href="${project.repo}" target="_blank" rel="noreferrer">Inspect RTL and tests <span>↗</span></a></div></section>
+  <section class="research-wide research-section" id="verification"><p class="section-index">06 / Verification</p><h2>Unit tests meet full-pipeline programs</h2><p class="research-lede">Icarus Verilog CI exercises ALU operations, register storage, Booth multiplication, and non-restoring division. Assembly simulations verify execution, memory hazards, bypass paths, and end-to-end MMIO.</p><div class="research-callout"><span>Measured design bound</span><p>At one update per angular column, the approximately 600 Hz strip ceiling supports at most 9.4 revolutions per second—a direct link between protocol timing and mechanical speed.</p></div><div class="case-actions fpga-repo-action"><a class="button button-primary" href="${project.repo}" target="_blank" rel="noreferrer">Open RTL repository <span>↗</span></a></div></section>
   <article class="research-prose"><p class="section-index">07 / Limits</p><h2>A complete prototype with clear next constraints</h2><ul class="research-limitations"><li><strong>Startup transient.</strong> Period estimation needs one or two revolutions before angular lock stabilizes.</li><li><strong>Synthesis-bound media.</strong> The active texture is selected at build time rather than switched through MMIO.</li><li><strong>Polling control.</strong> The CPU busy-waits on buttons; interrupts would enable richer interaction.</li><li><strong>Mixed-language simulation.</strong> A Verilog stub replaces the VHDL LED driver in open-source full-system simulation.</li></ul></article>
   <a class="case-next" href="../projects.html"><span>Research index</span><strong>All projects →</strong></a>`;
 
@@ -351,36 +352,59 @@ document.querySelector("main").innerHTML = slug === "fpga-hologram" ? fpgaPage :
   </div>
   <a class="case-next" href="${project.next}.html"><span>Next project / ${next.number}</span><strong>${next.title} →</strong></a>`;
 
-if (slug === "targetonco" || slug === "quantum-bayesian-learner" || slug === "lifeedit-gene-classifier") {
+{
   const lightbox = document.createElement("dialog");
   lightbox.className = "diagram-lightbox";
-  lightbox.setAttribute("aria-label", "Expanded architecture diagram");
-  lightbox.innerHTML = `<button class="diagram-lightbox-close" type="button" aria-label="Close expanded diagram">Close <span>×</span></button><div class="diagram-lightbox-scroll"><img alt=""></div>`;
+  lightbox.setAttribute("aria-label", "Expanded image viewer");
+  lightbox.innerHTML = `<div class="diagram-lightbox-toolbar"><span class="diagram-lightbox-level">100%</span><button type="button" data-zoom="out" aria-label="Zoom out">−</button><button type="button" data-zoom="reset">Reset</button><button type="button" data-zoom="in" aria-label="Zoom in">+</button><button class="diagram-lightbox-close" type="button" aria-label="Close expanded image">Close <span>×</span></button></div><div class="diagram-lightbox-scroll"><img alt=""></div>`;
   document.body.appendChild(lightbox);
 
   const expandedImage = lightbox.querySelector("img");
+  const scrollArea = lightbox.querySelector(".diagram-lightbox-scroll");
+  const level = lightbox.querySelector(".diagram-lightbox-level");
   const closeButton = lightbox.querySelector(".diagram-lightbox-close");
+  let zoom = 1;
+  const setZoom = (value) => {
+    zoom = Math.min(4, Math.max(0.5, value));
+    expandedImage.style.width = `${zoom * 100}%`;
+    level.textContent = `${Math.round(zoom * 100)}%`;
+  };
   const closeLightbox = () => lightbox.close();
-
-  document.querySelectorAll(".target-reference-diagram img, .qbl-source-figure img, .qbl-gallery img, .lifeedit-gallery img").forEach((image) => {
+  const openLightbox = (src, alt) => {
+    expandedImage.src = src;
+    expandedImage.alt = alt;
+    setZoom(1);
+    lightbox.showModal();
+    scrollArea.scrollTo(0, 0);
+    closeButton.focus();
+  };
+  document.querySelectorAll("main img").forEach((image) => {
     image.tabIndex = 0;
     image.setAttribute("role", "button");
     image.setAttribute("aria-label", `${image.alt}. Open enlarged view.`);
-    const openLightbox = () => {
-      expandedImage.src = image.src;
-      expandedImage.alt = image.alt;
-      lightbox.showModal();
-      closeButton.focus();
-    };
-    image.addEventListener("click", openLightbox);
+    image.classList.add("zoomable-media");
+    image.addEventListener("click", () => openLightbox(image.currentSrc || image.src, image.alt));
     image.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        openLightbox();
+        openLightbox(image.currentSrc || image.src, image.alt);
       }
     });
   });
-
+  document.querySelectorAll(".diagram-viewport object").forEach((object) => {
+    const viewport = object.closest(".diagram-viewport");
+    viewport.classList.add("zoomable-svg");
+    viewport.tabIndex = 0;
+    viewport.setAttribute("role", "button");
+    viewport.setAttribute("aria-label", `${object.getAttribute("aria-label") || "Diagram"}. Open enlarged view.`);
+    const openSvg = () => openLightbox(new URL(object.data, window.location.href).href, object.getAttribute("aria-label") || "Expanded diagram");
+    viewport.addEventListener("click", openSvg);
+    viewport.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openSvg(); } });
+  });
+  lightbox.querySelectorAll("[data-zoom]").forEach(button => button.addEventListener("click", () => {
+    setZoom(button.dataset.zoom === "in" ? zoom + .25 : button.dataset.zoom === "out" ? zoom - .25 : 1);
+  }));
+  scrollArea.addEventListener("wheel", event => { if (event.ctrlKey || event.metaKey) { event.preventDefault(); setZoom(zoom + (event.deltaY < 0 ? .15 : -.15)); } }, {passive:false});
   closeButton.addEventListener("click", closeLightbox);
   lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) closeLightbox();

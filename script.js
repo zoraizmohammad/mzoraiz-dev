@@ -1,6 +1,10 @@
 const links = [...document.querySelectorAll(".nav-link")];
 const navs = [...document.querySelectorAll("nav")];
 
+if ("serviceWorker" in navigator && window.location.protocol !== "file:") {
+  window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js"));
+}
+
 const headerSocials = document.querySelector(".site-header .social-links");
 const siteFooter = document.querySelector("footer");
 if (headerSocials && siteFooter && !siteFooter.querySelector(".footer-social-links")) {
